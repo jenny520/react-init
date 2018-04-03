@@ -1,20 +1,20 @@
 import {createStore, applyMiddleware} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {fromJS} from 'immutable'
+// import {fromJS} from 'immutable'
 import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import promiseMiddleware from 'redux-promise'
 import reducers from './reducers'
 
-const logger = createLogger
-
 const middlewares = [
     thunk,
-    promiseMiddleware,
-    logger
+    promiseMiddleware
 ]
+if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(createLogger())
+}
 
-function configureStore (initialState = fromJS({})) {
+function configureStore (initialState = {}) {
     const enhancer = applyMiddleware(...middlewares)
     const store = createStore(reducers(), initialState, composeWithDevTools(enhancer))
 

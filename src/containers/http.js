@@ -8,21 +8,19 @@ import * as httpActions from '../actions/http'
 import Http from '../pages/http'
 
 class HttpContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
+        console.log(this.props)
         return (
             <Http {...this.props}/>
         )
     }
 }
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        loginInfo: state.get('http').loginInfo
+        loginInfo: state.http.loginInfo
     }
 }
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
     return bindActionCreators(httpActions, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HttpContainer)

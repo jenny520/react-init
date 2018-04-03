@@ -8,9 +8,6 @@ import * as logActions from '../actions/log'
 import Log from '../pages/log'
 
 class LogContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <div>
@@ -19,12 +16,12 @@ class LogContainer extends Component {
         )
     }
 }
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        toastText: state.get('log').toastText
+        toastText: state.log.toastText
     }
 }
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
     return bindActionCreators(logActions, dispatch)
 }
 

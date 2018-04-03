@@ -8,11 +8,11 @@ const initState = {
 
 const logReducers = (state = initState, action) => {
     switch (action.type) {
-        case action.SHOW_TOAST:
+        case types.SHOW_TOAST:
             return {
                 toastText: action.payload.toastText
             }
-        case action.HIDE_TOAST:
+        case types.HIDE_TOAST:
             return {
                 toastText: action.payload.toastText
             }

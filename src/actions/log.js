@@ -1,7 +1,7 @@
 /**
  * Created by zhoumeiyan on 2018/4/2.
  */
-import * as types from 'actionTypes'
+import * as types from './actionTypes'
 
 export const toast = (toastText) => {
     return (dispatch, getState) => {

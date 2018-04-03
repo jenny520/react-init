@@ -8,10 +8,8 @@ import * as spiderActions from '../actions/spider'
 import Spider from '../pages/spider'
 
 class SpiderContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
+        console.log(this.props.dispatch)
         return (
             <div>
                 <Spider {...this.props}/>
@@ -19,12 +17,12 @@ class SpiderContainer extends Component {
         )
     }
 }
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        isLoading: state.get('spider').isLoading
+        isLoading: state.spider.isLoading
     }
 }
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
     return bindActionCreators(spiderActions, dispatch)
 }
 
